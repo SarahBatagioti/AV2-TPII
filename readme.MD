@@ -1,6 +1,4 @@
-﻿![Banner Atlantis](img/bannerAtlantis.png)
-
-# Atlantis CLI
+﻿![Banner Atlantis](src/img/bannerAtlantis.png)
 
 O Atlantis é um sistema de gestão para parques aquáticos, clubes e hotéis. Nesta versão, o projeto atende ao MVP solicitado na atividade com um CLI em TypeScript para cadastro e gerenciamento de clientes titulares e dependentes.
 
