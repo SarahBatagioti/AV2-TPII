@@ -1,5 +1,7 @@
-/js
-*.js
 .vscode/
-/node_modules/
-/node_modules/**
+src/js
+src/node_modules/
+src/node_modules/**
+*.js
+node_modules/
+dist/

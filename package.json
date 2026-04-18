@@ -2,10 +2,10 @@
   "name": "atvi-atlantis",
   "version": "1.0.0",
   "description": "",
-  "main": "js/teste/index.js",
+  "main": "dist/teste/index.js",
   "scripts": {
     "build": "tsc",
-    "start": "node js/teste/index.js",
+    "start": "node dist/teste/index.js",
     "check": "npm run build && npm run start",
     "test": "npm run check"
   },
