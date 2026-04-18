@@ -1,48 +1,44 @@
-![Banner Atlantis](img/bannerAtlantis.png)
+﻿![Banner Atlantis](img/bannerAtlantis.png)
 
-O Atlantis é um sistema de gestão para parques aquáticos, clubes e hotéis, criado para cadastrar clientes e seus dependentes. Utilizando o padrão de design "protótipo", o sistema armazena informações como endereço e telefone de maneira eficiente. A primeira versão do projeto foca na criação de um módulo simples e funcional, com a intenção de facilitar a administração desses estabelecimentos.
+# Atlantis CLI
 
-## Requisitos para rodar
+O Atlantis é um sistema de gestão para parques aquáticos, clubes e hotéis. Nesta versão, o projeto atende ao MVP solicitado na atividade com um CLI em TypeScript para cadastro e gerenciamento de clientes titulares e dependentes.
 
-- Node.js: v24.13.1 (versão testada)
-- npm: versão que acompanha o Node v24.13.1
+## Funcionalidades implementadas
 
-## Como rodar o projeto
+- CRUD de clientes em memória
+- Cadastro de clientes dependentes vinculados a um titular
+- Listagem de dependentes de um titular específico
+- Listagem do titular de um dependente específico
+- Carga inicial de dados para facilitar demonstração e testes
+- Execução compatível com CI sem bloquear em entrada interativa
 
-### 1) Clonar o repositório
+## Padrões e organização
 
-```bash
-git clone https://github.com/SarahBatagioti/AV1-TPII.git
-```
+- `Singleton`: a classe `Armazem` concentra os clientes durante a execução
+- `Strategy`: o menu principal delega as ações para processos específicos
+- `Prototype`: `Endereco` e `Telefone` continuam com suporte a clonagem
 
-### 2) Entrar na pasta do projeto
-
-```bash
-cd AV1-TPII
-```
-
-### 3) Instalar dependências do projeto
+## Como executar
 
 ```bash
 npm install
+npm run build
+npm start
 ```
 
-### 4) Compilar TypeScript para JavaScript
+## Menu principal
 
-```bash
-npx tsc
-```
+Ao iniciar em modo interativo, o sistema oferece as opções:
 
-Saída esperada:
-- Os arquivos compilados serão gerados na pasta `js`.
+- cadastrar cliente titular
+- cadastrar cliente dependente
+- listar clientes
+- atualizar cliente
+- remover cliente
+- listar dependentes por titular
+- listar titular por dependente
 
-### 5) Executar o projeto
+## Observação sobre CI
 
-```bash
-node js/teste/index.js
-```
-## Status do CI
-
-Este projeto possui CI com GitHub Actions em modo multi-OS. A cada push, o pipeline instala dependências, compila o TypeScript e executa o sistema em Linux, Windows e macOS. Com o badge em verde, fica visível que o projeto foi testado e passou nos 3 sistemas operacionais.
-
-[![Multi-OS CI](https://github.com/SarahBatagioti/AV1-TPII/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/SarahBatagioti/AV1-TPII/actions/workflows/ci.yml?query=branch%3Amain)
+Quando a variável `CI=true` estiver definida, o sistema não abre prompts. Em vez disso, ele carrega os dados iniciais e imprime um resumo dos clientes cadastrados.
