@@ -8,6 +8,22 @@ export default class Endereco implements Prototipo {
     public pais: string
     public codigoPostal: string
 
+    constructor(
+        rua: string = '',
+        bairro: string = '',
+        cidade: string = '',
+        estado: string = '',
+        pais: string = '',
+        codigoPostal: string = ''
+    ) {
+        this.rua = rua
+        this.bairro = bairro
+        this.cidade = cidade
+        this.estado = estado
+        this.pais = pais
+        this.codigoPostal = codigoPostal
+    }
+
     public clonar(): Prototipo {
         let endereco = new Endereco()
         endereco.rua = this.rua
