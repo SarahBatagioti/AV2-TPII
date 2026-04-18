@@ -4,14 +4,10 @@
 
 O Atlantis é um sistema de gestão para parques aquáticos, clubes e hotéis. Nesta versão, o projeto atende ao MVP solicitado na atividade com um CLI em TypeScript para cadastro e gerenciamento de clientes titulares e dependentes.
 
-## Funcionalidades implementadas
+## Requisitos para rodar
 
-- CRUD de clientes em memória
-- Cadastro de clientes dependentes vinculados a um titular
-- Listagem de dependentes de um titular específico
-- Listagem do titular de um dependente específico
-- Carga inicial de dados para facilitar demonstração e testes
-- Execução compatível com CI sem bloquear em entrada interativa
+- Node.js: v24.13.1 (versão testada)
+- npm: versão que acompanha o Node v24.13.1
 
 ## Padrões e organização
 
@@ -19,26 +15,42 @@ O Atlantis é um sistema de gestão para parques aquáticos, clubes e hotéis. N
 - `Strategy`: o menu principal delega as ações para processos específicos
 - `Prototype`: `Endereco` e `Telefone` continuam com suporte a clonagem
 
-## Como executar
+## Como rodar o projeto
+
+### 1) Clonar o repositório
+
+```bash
+git clone https://github.com/SarahBatagioti/AV2-TPII.git
+```
+
+### 2) Entrar na pasta do projeto
+
+```bash
+cd AV2-TPII
+```
+
+### 3) Instalar dependências do projeto
 
 ```bash
 npm install
+```
+
+### 4) Compilar TypeScript para JavaScript
+
+```bash
 npm run build
+```
+
+Saída esperada:
+- Os arquivos compilados serão gerados na pasta `js`.
+
+### 5) Executar o projeto
+```bash
 npm start
 ```
 
-## Menu principal
+### Status do CI
 
-Ao iniciar em modo interativo, o sistema oferece as opções:
+Este projeto possui CI com GitHub Actions em modo multi-OS. A cada push, o pipeline instala dependências, compila o TypeScript e executa o sistema em Linux, Windows e macOS. Com o badge em verde, fica visível que o projeto foi testado e passou nos 3 sistemas operacionais.
 
-- cadastrar cliente titular
-- cadastrar cliente dependente
-- listar clientes
-- atualizar cliente
-- remover cliente
-- listar dependentes por titular
-- listar titular por dependente
-
-## Observação sobre CI
-
-Quando a variável `CI=true` estiver definida, o sistema não abre prompts. Em vez disso, ele carrega os dados iniciais e imprime um resumo dos clientes cadastrados.
+[![Multi-OS CI](https://github.com/SarahBatagioti/AV2-TPII/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/SarahBatagioti/AV2-TPII/actions/workflows/ci.yml?query=branch%3Amain)
